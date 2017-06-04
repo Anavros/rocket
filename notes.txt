@@ -1,0 +1,11 @@
+
+Features:
+- Create a window.
+- Launch an internal loop that uses callbacks.
+- Register event callbacks.
+- Load glsl shaders.
+
+Desired:
+- Run a window without taking control flow.
+- Manually process events without callbacks, or use an external callback system.
+- C bindings that are similar to python bindings.
