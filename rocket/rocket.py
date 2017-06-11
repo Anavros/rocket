@@ -51,6 +51,7 @@ def attach(f):
         CALLBACKS[name] = f
     else:
         raise ValueError("unknown event @rocket.call: {}.".format(name))
+    return f
 
 
 def program(v_path, f_path):
@@ -165,6 +166,7 @@ def launch(fps=None, autoclear=True, enablealpha=True):
     CANVAS.connect(on_mouse_wheel)
 
     def on_key_press(event):
+        #print(event.key)
         call('key_press', event.text)
         held_keys.append(event.text)
     CANVAS.connect(on_key_press)

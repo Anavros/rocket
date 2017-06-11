@@ -42,9 +42,17 @@ class Mover:
         self.x = 0
         self.y = 0
         self.z = 0
+        self.rx = 0
+        self.ry = 0
+        self.rz = 0
 
-    def move(self, x=0, y=0, z=0):
-        self.transform = move(self.transform, x, y, z)
+    def move(self, x=0, y=0, z=0, absolute=False):
+        if absolute:
+            self.transform = rotate(self.transform, -self.rx, -self.ry, -self.rz)
+            self.transform = move(self.transform, x, y, z)
+            self.transform = rotate(self.transform, self.rx, self.ry, self.rz)
+        else:
+            self.transform = move(self.transform, x, y, z)
         self.x += x
         self.y += y
         self.z += z
@@ -56,9 +64,21 @@ class Mover:
             self.transform = move(self.transform, self.x, self.y, self.z)
         else:
             self.transform = rotate(self.transform, x, y, z)
+        self.rx += x
+        self.ry += y
+        self.rz += z
 
     def scale(self, x=0, y=0, z=0):
         self.transform = scale(self.transform, x, y, z)
+
+    def reset(self):
+        self.transform = np.eye(4)
+        self.x = 0
+        self.y = 0
+        self.z = 0
+        self.rx = 0
+        self.ry = 0
+        self.rz = 0
 
 
 class View(Mover):

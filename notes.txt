@@ -1,4 +1,14 @@
 
+TODO:
+- Improved key reporting that shows modifiers, non-alphabetical characters, etc.
+- Less complex callback system for clearer stack traces?
+- Better handling of index buffers so gloo import is not needed.
+- Attach function that takes names and args and doesn't just infer from function
+name.
+- Optional argument to get coordinates in world space instead of pixel space.
+- Sequential screenshot function, as well as auto-named screens.
+- Timer to fire held-key events less often than once per frame.
+
 Features:
 - Create a window.
 - Launch an internal loop that uses callbacks.
@@ -9,3 +19,4 @@ Desired:
 - Run a window without taking control flow.
 - Manually process events without callbacks, or use an external callback system.
 - C bindings that are similar to python bindings.
+- Resizable windows with auto-readjusting aspect ratio?
